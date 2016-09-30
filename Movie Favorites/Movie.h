@@ -12,7 +12,8 @@
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *overview;
-@property (nonatomic) NSString *posterPath;
+@property (nonatomic) NSURL *imageURL;
+@property (nonatomic) NSNumber *identifier;
 
 -(id)initWithDictionary:(NSDictionary *)JSONDict;
 

@@ -7,5 +7,6 @@ target 'Movie Favorites' do
 
   # Pods for Movie Favorites
 pod 'SAMCache'
+pod 'Haneke'
 
 end

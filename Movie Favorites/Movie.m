@@ -11,9 +11,14 @@
 @implementation Movie
 
 -(id)initWithDictionary:(NSDictionary *)JSONDict {
+    self.identifier = [JSONDict valueForKey:@"id"];
     self.title = [JSONDict valueForKey:@"title"];
     self.overview = [JSONDict valueForKey:@"overview"];
-    self.posterPath = [JSONDict valueForKey:@"poster_path"];
+    NSString *posterPath = [JSONDict valueForKey:@"poster_path"];
+    NSString *urlString = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", posterPath];
+    NSURL *url = [NSURL URLWithString:urlString];
+    self.imageURL = url;
+    
     return self;
 }
 

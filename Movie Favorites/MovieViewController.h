@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MovieCell.h"
 #import "MovieManager.h"
-#import "ImageManager.h"
 
 @interface MovieViewController : UICollectionViewController
 
 @property (nonatomic) MovieManager *manager;
 @property (nonatomic) NSMutableArray *movies;
-@property (nonatomic) ImageManager *imageManager;
 
 @end

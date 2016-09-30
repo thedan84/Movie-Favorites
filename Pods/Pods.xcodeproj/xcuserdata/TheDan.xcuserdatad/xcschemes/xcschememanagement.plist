@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Haneke.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Movie Favorites.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>078C21594F3DE810CA1B610BB49C718F</key>
+		<key>654581EC6C2A39D9E0FE5FF59AC19637</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D77679758C635BFC56F8C83F61A0C996</key>
+		<key>6E7D726ADA8D51194A8E9EDBDECCADF6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9831D96152AD1812C75E5F4F1DE7CA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
