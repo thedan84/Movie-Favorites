@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MovieCell.h
 //  Movie Favorites
 //
 //  Created by Dennis Parussini on 29-09-16.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MovieCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
 
 @end
-
