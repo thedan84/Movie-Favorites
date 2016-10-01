@@ -10,7 +10,7 @@
         <scene sceneID="3gp-Cw-hsk">
             <objects>
                 <collectionViewController id="pcv-jb-DON" customClass="MovieViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Hip-rE-M1W">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Hip-rE-M1W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="585" y="-290"/>
         </scene>
-        <!--Movie View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="Ra2-2y-cTT">
             <objects>
-                <collectionViewController id="WOk-jl-IRD" customClass="MovieViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="favController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WOk-jl-IRD" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="MPG-7a-hlU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,12 +58,72 @@
             </objects>
             <point key="canvasLocation" x="585" y="591"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="VZi-Sx-OML">
+            <objects>
+                <viewController storyboardIdentifier="DetailView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dAF-jl-Wfn" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NSO-47-bh9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ryh-A0-tmj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TT6-6b-jPd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Wu-Hm-1kY">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="4oT-Sq-TuB"/>
+                                    <constraint firstAttribute="width" constant="200" id="hi0-hb-fmn"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8p-lp-hjf">
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="dAF-jl-Wfn" eventType="touchUpInside" id="wRy-Jx-JOH"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrK-HD-3ex">
+                                <state key="normal" title="Add to Favorites"/>
+                                <connections>
+                                    <action selector="addToFavoritesButtonTapped:" destination="dAF-jl-Wfn" eventType="touchUpInside" id="6b9-ZZ-a9q"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJs-Lf-cWw">
+                                <state key="normal" title="Remove from Favorites"/>
+                                <connections>
+                                    <action selector="removeFromFavoritesTapped:" destination="dAF-jl-Wfn" eventType="touchUpInside" id="vMv-xG-dol"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YJs-Lf-cWw" firstAttribute="centerX" secondItem="TT6-6b-jPd" secondAttribute="centerX" id="20i-lx-GzP"/>
+                            <constraint firstItem="YJs-Lf-cWw" firstAttribute="top" secondItem="9Wu-Hm-1kY" secondAttribute="bottom" constant="56.5" id="HdS-tM-9Yp"/>
+                            <constraint firstItem="mrK-HD-3ex" firstAttribute="centerX" secondItem="TT6-6b-jPd" secondAttribute="centerX" id="KzI-dK-Jfk"/>
+                            <constraint firstItem="9Wu-Hm-1kY" firstAttribute="centerX" secondItem="TT6-6b-jPd" secondAttribute="centerX" id="SZj-c9-QZU"/>
+                            <constraint firstItem="L8p-lp-hjf" firstAttribute="top" secondItem="mrK-HD-3ex" secondAttribute="bottom" constant="36" id="UdZ-dk-rkH"/>
+                            <constraint firstItem="9Wu-Hm-1kY" firstAttribute="centerY" secondItem="TT6-6b-jPd" secondAttribute="centerY" id="hmv-6g-rgf"/>
+                            <constraint firstItem="L8p-lp-hjf" firstAttribute="centerX" secondItem="mrK-HD-3ex" secondAttribute="centerX" id="q5Y-a0-me3"/>
+                            <constraint firstItem="mrK-HD-3ex" firstAttribute="top" secondItem="9Wu-Hm-1kY" secondAttribute="bottom" constant="57" id="upg-zt-z2o"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addToFavoritesButton" destination="mrK-HD-3ex" id="BAt-c3-Qce"/>
+                        <outlet property="movieImageView" destination="9Wu-Hm-1kY" id="8cR-Vn-JSw"/>
+                        <outlet property="removeFromFavoritesButton" destination="YJs-Lf-cWw" id="zZg-RC-N9Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJb-4I-U77" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1497" y="236"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pRX-dT-rje">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kGl-UA-gul" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="z9W-ah-9xn">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

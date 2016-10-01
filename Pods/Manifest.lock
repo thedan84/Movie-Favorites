@@ -1,8 +1,8 @@
 PODS:
   - Haneke (1.0.2)
-  - Realm (1.1.0):
-    - Realm/Headers (= 1.1.0)
-  - Realm/Headers (1.1.0)
+  - Realm (2.0.1):
+    - Realm/Headers (= 2.0.1)
+  - Realm/Headers (2.0.1)
 
 DEPENDENCIES:
   - Haneke
@@ -10,7 +10,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Haneke: 01454a67322faa0dd9d81fc0f447885044e71521
-  Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
+  Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
 
 PODFILE CHECKSUM: 874288cc18e23fc40ea4439042b307c94f430725
 

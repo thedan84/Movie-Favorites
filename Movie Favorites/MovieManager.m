@@ -14,29 +14,48 @@
 
 @implementation MovieManager
 
--(void)fetchMoviesWithPage:(NSInteger) page completion:(void(^)(NSArray *movieArray)) completion {
+-(void)fetchMoviesWithPage:(NSInteger) page completion:(void(^)(RLMResults<Movie *> *movieArray)) completion {
     [NetworkManager requestEndpoint:@"https:api.themoviedb.org/3/movie/popular?api_key=c3005ad5132be3f614b8de0fe58fbdf4" completion:^(NSArray *JSONArray) {
         
-        NSMutableArray *moviesArray = [NSMutableArray new];
+        RLMRealm *realm = [RLMRealm defaultRealm];
         
         for (NSDictionary *jsonDict in JSONArray) {
-            Movie *movie = [[Movie alloc] initWithDictionary:jsonDict];
-            [moviesArray addObject:movie];
+            [realm transactionWithBlock:^{
+                [Movie createOrUpdateInRealm:realm withValue:jsonDict];
+            }];
         }
         
-        completion(moviesArray);
+        completion([Movie allObjects]);
     }];
 }
 
--(void)saveMovieToFavorites:(Movie *)movie {
+-(void)saveMovieToFavorites:(Movie *)movie completion:(void (^)(void))completion {
     RLMRealm *realm = [RLMRealm defaultRealm];
+
     [realm beginWriteTransaction];
+    
+    movie.isFavorite = YES;
+    
     [realm addOrUpdateObject:movie];
     [realm commitWriteTransaction];
+    
+    completion();
+}
+
+-(void)deleteMovieFromFavorites:(Movie *)movie completion:(void(^)(void))completion {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    movie.isFavorite = NO;
+    
+    [realm addOrUpdateObject:movie];
+    [realm commitWriteTransaction];
+    
+    completion();
 }
 
 -(void)loadMoviesFromDisk: (void(^)(RLMResults<Movie *> *moviesArray))completion {
-    RLMResults<Movie *> *movies = [Movie allObjects];
+    RLMResults<Movie *> *movies = [Movie objectsWhere:@"isFavorite = YES"];
     completion(movies);
 }
 

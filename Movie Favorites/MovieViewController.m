@@ -19,20 +19,16 @@ static NSString * const reuseIdentifier = @"movieCell";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"MovieCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
-    UITabBar *tabbar = self.tabBarController.tabBar;
-    
-    if ([tabbar.selectedItem.title isEqualToString:@"Movies"]) {
-        [self.manager fetchMoviesWithPage:1 completion:^(NSArray *movieArray) {
-            self.movies = [[NSMutableArray alloc] initWithArray:movieArray];
+    [self.manager fetchMoviesWithPage:1 completion:^(RLMResults<Movie *> *movieArray) {
+        self.movies = movieArray;
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self.collectionView reloadData];
         }];
-    } else if ([tabbar.selectedItem.title isEqualToString:@"Favorites"]) {
-        [self.manager loadMoviesFromDisk:^(RLMResults<Movie *> *moviesArray) {
-            self.favorites = moviesArray;
-            [self.collectionView reloadData];
-        }];
-    }
+    }];
     
+    RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
+    NSLog(@"%@", [config fileURL]);
 }
 
 /*
@@ -48,33 +44,13 @@ static NSString * const reuseIdentifier = @"movieCell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger count = 0;
-    
-    UITabBar *tabbar = self.tabBarController.tabBar;
-    
-    if ([tabbar.selectedItem.title isEqualToString:@"Movies"]) {
-        count = self.movies.count;
-    } else if ([tabbar.selectedItem.title isEqualToString:@"Favorites"]) {
-        count =  self.favorites.count;
-    }
-    NSLog(@"%li", (long)count);
-    
-    return count;
+    return self.movies.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    Movie *movie = [[Movie alloc] init];
-    
-    UITabBar *tabbar = self.tabBarController.tabBar;
-    
-    if ([tabbar.selectedItem.title isEqualToString:@"Movies"]) {
-        movie = self.movies[indexPath.row];
-    } else if ([tabbar.selectedItem.title isEqualToString:@"Favorites"]) {
-        movie = self.favorites[indexPath.row];
-    }
-
+    Movie *movie = self.movies[indexPath.row];
     [cell configureCellWithMovie:movie];
     
     return cell;
@@ -82,6 +58,11 @@ static NSString * const reuseIdentifier = @"movieCell";
 
 #pragma mark <UICollectionViewDelegate>
 
-
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    DetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailView"];
+    Movie *movie = self.movies[indexPath.row];
+    detailVC.movie = movie;
+    [self presentViewController:detailVC animated:true completion:nil];
+}
 
 @end

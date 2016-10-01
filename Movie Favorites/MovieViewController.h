@@ -10,11 +10,11 @@
 #import "MovieCell.h"
 #import "MovieManager.h"
 #import <Realm/Realm.h>
+#import "DetailViewController.h"
 
 @interface MovieViewController : UICollectionViewController
 
 @property (nonatomic) MovieManager *manager;
-@property (nonatomic) NSMutableArray *movies;
-@property (nonatomic) RLMResults<Movie *> *favorites;
+@property (nonatomic) RLMResults<Movie *> *movies;
 
 @end

@@ -10,18 +10,11 @@
 
 @implementation DetailViewController
 
-static NSString * const reuseIdentifier = @"movieCell";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerNib:[UINib nibWithNibName:@"MovieCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
+    self.manager = [[MovieManager alloc] init];
+    [self setupViewWithMovie:self.movie];
 }
 
 /*
@@ -34,56 +27,35 @@ static NSString * const reuseIdentifier = @"movieCell";
 }
 */
 
-#pragma mark <UICollectionViewDataSource>
+- (IBAction)addToFavoritesButtonTapped:(id)sender {
+    [self.manager saveMovieToFavorites:self.movie completion:^{
+        [self dismissViewControllerAnimated:true completion:nil];
+    }];
+}
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+- (IBAction)removeFromFavoritesTapped:(id)sender {
+    [self.manager deleteMovieFromFavorites:self.movie completion:^{
+        [self dismissViewControllerAnimated:true completion:nil];
+    }];
+}
+
+- (IBAction)dismissButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+-(void)setupViewWithMovie:(Movie *)movie {
+    NSString *url = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w500%@", movie.poster_path];
+    [self.movieImageView hnk_setImageFromURL:[NSURL URLWithString:url]];
     
-    // Configure the cell
-    
-    return cell;
+    if (movie.isFavorite) {
+        self.removeFromFavoritesButton.hidden = NO;
+        self.addToFavoritesButton.hidden = YES;
+    } else {
+        self.removeFromFavoritesButton.hidden = YES;
+        self.addToFavoritesButton.hidden = NO;
+    }
 }
 
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

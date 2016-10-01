@@ -16,7 +16,8 @@
 }
 
 -(void)configureCellWithMovie:(Movie *)movie {
-    [self.movieImageView hnk_setImageFromURL:[NSURL URLWithString:movie.imageURLString]];
+    NSString *url = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w500%@", movie.poster_path];
+    [self.movieImageView hnk_setImageFromURL:[NSURL URLWithString:url]];
 }
 
 @end

@@ -11,11 +11,12 @@
 
 @interface Movie : RLMObject
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *overview;
-@property (nonatomic) NSString *imageURLString;
-@property (nonatomic) NSNumber<RLMInt> *identifier;
+@property NSString *title;
+@property NSString *overview;
+@property NSString *poster_path;
+@property NSInteger id;
+@property BOOL isFavorite;
 
--(id)initWithDictionary:(NSDictionary *)JSONDict;
+//-(id)initWithDictionary:(NSDictionary *)JSONDict;
 
 @end

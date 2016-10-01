@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
+#import <Haneke/Haneke.h>
+#import "MovieManager.h"
+#import "FavoritesViewController.h"
 
-@interface DetailViewController : UICollectionViewController
+@interface DetailViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
+@property (weak, nonatomic) IBOutlet UIButton *addToFavoritesButton;
+@property (weak, nonatomic) IBOutlet UIButton *removeFromFavoritesButton;
+
+@property (nonatomic) Movie *movie;
+@property (nonatomic) MovieManager *manager;
 
 @end
