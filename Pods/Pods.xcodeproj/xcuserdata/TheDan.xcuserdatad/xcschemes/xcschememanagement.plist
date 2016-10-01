@@ -14,25 +14,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SAMCache.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>654581EC6C2A39D9E0FE5FF59AC19637</key>
+		<key>140FA422D8B7B57F72B16C401A685B3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>6E7D726ADA8D51194A8E9EDBDECCADF6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C9831D96152AD1812C75E5F4F1DE7CA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

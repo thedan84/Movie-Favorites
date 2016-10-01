@@ -7,7 +7,6 @@
 //
 
 #import "MovieCell.h"
-#import "Haneke.h"
 
 @implementation MovieCell
 

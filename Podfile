@@ -6,7 +6,5 @@ target 'Movie Favorites' do
   # use_frameworks!
 
   # Pods for Movie Favorites
-pod 'SAMCache'
 pod 'Haneke'
-
 end

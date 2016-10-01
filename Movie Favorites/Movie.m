@@ -15,7 +15,7 @@
     self.title = [JSONDict valueForKey:@"title"];
     self.overview = [JSONDict valueForKey:@"overview"];
     NSString *posterPath = [JSONDict valueForKey:@"poster_path"];
-    NSString *urlString = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", posterPath];
+    NSString *urlString = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w500%@", posterPath];
     NSURL *url = [NSURL URLWithString:urlString];
     self.imageURL = url;
     

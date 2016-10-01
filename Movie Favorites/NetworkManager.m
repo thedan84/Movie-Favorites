@@ -21,9 +21,9 @@
         NSDictionary *JSONDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         NSArray *JSONArray = [JSONDict valueForKey:@"results"];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             completion(JSONArray);
-        });
+        }];
     }];
     
     [task resume];

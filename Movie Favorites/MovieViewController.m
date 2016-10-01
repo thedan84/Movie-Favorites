@@ -15,9 +15,6 @@ static NSString * const reuseIdentifier = @"movieCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Register cell classes
-    [self.collectionView registerClass:[MovieCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
     self.manager = [[MovieManager alloc] init];
     [self.manager fetchMoviesWithPage:1 completion:^(NSArray *movieArray) {
         self.movies = [[NSMutableArray alloc] initWithArray:movieArray];
@@ -37,19 +34,14 @@ static NSString * const reuseIdentifier = @"movieCell";
 
 #pragma mark <UICollectionViewDataSource>
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"%lu", (unsigned long)[self.movies count]);
-    return [self.movies count];
+    return self.movies.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MovieCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    Movie *movie = [self.movies objectAtIndex:indexPath.row];
+    Movie *movie = self.movies[indexPath.row];
     [cell configureCellWithMovie:movie];
     
     return cell;
