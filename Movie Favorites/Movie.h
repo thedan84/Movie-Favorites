@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
-@interface Movie : NSObject
+@interface Movie : RLMObject
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *overview;
-@property (nonatomic) NSURL *imageURL;
-@property (nonatomic) NSNumber *identifier;
+@property (nonatomic) NSString *imageURLString;
+@property (nonatomic) NSNumber<RLMInt> *identifier;
 
 -(id)initWithDictionary:(NSDictionary *)JSONDict;
 

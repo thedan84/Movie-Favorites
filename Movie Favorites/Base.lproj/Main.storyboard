@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pcv-jb-DON">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kGl-UA-gul">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie View Controller-->
+        <!--Movies-->
         <scene sceneID="3gp-Cw-hsk">
             <objects>
                 <collectionViewController id="pcv-jb-DON" customClass="MovieViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Hip-rE-M1W">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Hip-rE-M1W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -20,35 +20,59 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="JFj-mi-h9S" customClass="MovieCell">
-                                <rect key="frame" x="2" y="2" width="120" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TDc-aL-dgp"/>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="TDc-aL-dgp" secondAttribute="trailing" id="CJg-Nc-WQT"/>
-                                    <constraint firstItem="TDc-aL-dgp" firstAttribute="leading" secondItem="JFj-mi-h9S" secondAttribute="leading" id="LVZ-fu-osM"/>
-                                    <constraint firstAttribute="bottom" secondItem="TDc-aL-dgp" secondAttribute="bottom" id="dkw-JT-CYS"/>
-                                    <constraint firstItem="TDc-aL-dgp" firstAttribute="top" secondItem="JFj-mi-h9S" secondAttribute="top" id="f9Z-ce-Wnh"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="movieImageView" destination="TDc-aL-dgp" id="Egu-Zp-CMs"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="pcv-jb-DON" id="8KQ-EA-R0F"/>
                             <outlet property="delegate" destination="pcv-jb-DON" id="b5b-33-PIy"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" tag="1" title="Movies" id="biA-iF-K54"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edh-Zd-WS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="-290"/>
+        </scene>
+        <!--Movie View Controller-->
+        <scene sceneID="Ra2-2y-cTT">
+            <objects>
+                <collectionViewController id="WOk-jl-IRD" customClass="MovieViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="MPG-7a-hlU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="2" id="UYS-eF-22L">
+                            <size key="itemSize" width="120" height="160"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="WOk-jl-IRD" id="SKv-wa-H2M"/>
+                            <outlet property="delegate" destination="WOk-jl-IRD" id="eul-XN-g7r"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" tag="2" systemItem="favorites" id="XWg-qq-jKx"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSc-Yv-KSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="591"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="pRX-dT-rje">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kGl-UA-gul" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="z9W-ah-9xn">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pcv-jb-DON" kind="relationship" relationship="viewControllers" id="b0S-it-e2K"/>
+                        <segue destination="WOk-jl-IRD" kind="relationship" relationship="viewControllers" id="3CR-5m-ISW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6d3-1P-6CD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-452" y="178.56071964017991"/>
         </scene>

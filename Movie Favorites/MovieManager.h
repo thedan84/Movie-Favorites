@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "NetworkManager.h"
+#import <Realm/Realm.h>
 
 @interface MovieManager : NSObject
 
 -(void)fetchMoviesWithPage:(NSInteger) page completion:(void(^)(NSArray *movieArray)) completion;
+-(void)saveMovieToFavorites:(Movie *)movie;
+-(void)loadMoviesFromDisk: (void(^)(RLMResults<Movie *> *moviesArray))completion;
 
 @end

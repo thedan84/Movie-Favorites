@@ -28,4 +28,16 @@
     }];
 }
 
+-(void)saveMovieToFavorites:(Movie *)movie {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm addOrUpdateObject:movie];
+    [realm commitWriteTransaction];
+}
+
+-(void)loadMoviesFromDisk: (void(^)(RLMResults<Movie *> *moviesArray))completion {
+    RLMResults<Movie *> *movies = [Movie allObjects];
+    completion(movies);
+}
+
 @end

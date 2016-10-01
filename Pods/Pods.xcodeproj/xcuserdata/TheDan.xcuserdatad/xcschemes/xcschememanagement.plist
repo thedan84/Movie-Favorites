@@ -14,10 +14,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>140FA422D8B7B57F72B16C401A685B3D</key>
+		<key>0E99D30B368B35A3AD801D91220E1A07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5A63DF8A93B3627DA7576CC3B78656FE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

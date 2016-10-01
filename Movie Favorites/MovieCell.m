@@ -16,7 +16,7 @@
 }
 
 -(void)configureCellWithMovie:(Movie *)movie {
-    [self.movieImageView hnk_setImageFromURL:movie.imageURL];
+    [self.movieImageView hnk_setImageFromURL:[NSURL URLWithString:movie.imageURLString]];
 }
 
 @end

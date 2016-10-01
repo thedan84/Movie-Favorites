@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		781EA71D1D9FAAAA00F2503D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 781EA71C1D9FAAAA00F2503D /* DetailViewController.m */; };
+		781EA71F1D9FAB5F00F2503D /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 781EA71E1D9FAB5F00F2503D /* MovieCell.xib */; };
 		78D06D5E1D9D7A6A00F864FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D06D5D1D9D7A6A00F864FE /* main.m */; };
 		78D06D611D9D7A6A00F864FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D06D601D9D7A6A00F864FE /* AppDelegate.m */; };
 		78D06D671D9D7A6A00F864FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78D06D651D9D7A6A00F864FE /* Main.storyboard */; };
@@ -21,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		781EA71B1D9FAAAA00F2503D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		781EA71C1D9FAAAA00F2503D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		781EA71E1D9FAB5F00F2503D /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		78D06D591D9D7A6A00F864FE /* Movie Favorites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Favorites.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D06D5D1D9D7A6A00F864FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		78D06D5F1D9D7A6A00F864FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,8 +94,11 @@
 				78D06D601D9D7A6A00F864FE /* AppDelegate.m */,
 				78D06D731D9D7B0B00F864FE /* MovieViewController.h */,
 				78D06D741D9D7B0B00F864FE /* MovieViewController.m */,
+				781EA71B1D9FAAAA00F2503D /* DetailViewController.h */,
+				781EA71C1D9FAAAA00F2503D /* DetailViewController.m */,
 				78D06D761D9D7B9300F864FE /* MovieCell.h */,
 				78D06D771D9D7B9300F864FE /* MovieCell.m */,
+				781EA71E1D9FAB5F00F2503D /* MovieCell.xib */,
 				78D06D7C1D9D7BFD00F864FE /* NetworkManager.h */,
 				78D06D7D1D9D7BFD00F864FE /* NetworkManager.m */,
 				78D06D7F1D9D83EF00F864FE /* MovieManager.h */,
@@ -187,6 +195,7 @@
 			files = (
 				78D06D6C1D9D7A6A00F864FE /* LaunchScreen.storyboard in Resources */,
 				78D06D691D9D7A6A00F864FE /* Assets.xcassets in Resources */,
+				781EA71F1D9FAB5F00F2503D /* MovieCell.xib in Resources */,
 				78D06D671D9D7A6A00F864FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +258,7 @@
 				78D06D611D9D7A6A00F864FE /* AppDelegate.m in Sources */,
 				78D06D751D9D7B0B00F864FE /* MovieViewController.m in Sources */,
 				78D06D7B1D9D7BE500F864FE /* Movie.m in Sources */,
+				781EA71D1D9FAAAA00F2503D /* DetailViewController.m in Sources */,
 				78D06D781D9D7B9300F864FE /* MovieCell.m in Sources */,
 				78D06D7E1D9D7BFD00F864FE /* NetworkManager.m in Sources */,
 				78D06D811D9D83EF00F864FE /* MovieManager.m in Sources */,
