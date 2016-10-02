@@ -13,10 +13,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="buv-h0-y2n"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FavoritesLabel" translatesAutoresizingMaskIntoConstraints="NO" id="I57-qC-vQz">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="MEg-Gv-3m7"/>
+                        <constraint firstAttribute="width" constant="40" id="h2d-l5-hZQ"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="I57-qC-vQz" secondAttribute="trailing" id="2cW-g9-9MG"/>
                 <constraint firstAttribute="trailing" secondItem="buv-h0-y2n" secondAttribute="trailing" id="Ze5-Ls-EoJ"/>
+                <constraint firstItem="I57-qC-vQz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hMb-e1-h2u"/>
                 <constraint firstItem="buv-h0-y2n" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hdD-YO-zgn"/>
                 <constraint firstAttribute="bottom" secondItem="buv-h0-y2n" secondAttribute="bottom" id="ooZ-Yu-Zzv"/>
                 <constraint firstItem="buv-h0-y2n" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xiC-fh-rUG"/>
@@ -24,9 +32,13 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="favoritesImageView" destination="I57-qC-vQz" id="JmO-lB-KQ8"/>
                 <outlet property="movieImageView" destination="buv-h0-y2n" id="XRu-Z6-J4S"/>
             </connections>
             <point key="canvasLocation" x="-105" y="-32"/>
         </view>
     </objects>
+    <resources>
+        <image name="FavoritesLabel" width="33" height="33"/>
+    </resources>
 </document>

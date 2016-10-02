@@ -21,14 +21,15 @@ static NSString * const reuseIdentifier = @"movieCell";
     
     [self.manager fetchMoviesWithPage:1 completion:^(RLMResults<Movie *> *movieArray) {
         self.movies = movieArray;
-
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.collectionView reloadData];
-        }];
+        [self.collectionView reloadData];
+        
     }];
     
-    RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
-    NSLog(@"%@", [config fileURL]);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollectionView) name:@"ReloadCollectionView" object:nil];
+}
+
+-(void)reloadCollectionView {
+    [self.collectionView reloadData];
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -52,7 +53,7 @@ static NSString * const reuseIdentifier = @"movieCell";
     DetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailView"];
     Movie *movie = self.movies[indexPath.row];
     detailVC.movie = movie;
-    [self presentViewController:detailVC animated:true completion:nil];
+    [self.navigationController pushViewController:detailVC animated:true];
 }
 
 @end

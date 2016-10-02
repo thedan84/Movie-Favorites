@@ -17,47 +17,34 @@
     [self setupViewWithMovie:self.movie];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)addToFavoritesButtonTapped:(id)sender {
-    [self.manager saveMovieToFavorites:self.movie completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
-        [self dismissViewControllerAnimated:true completion:nil];
-    }];
-}
-
-- (IBAction)removeFromFavoritesTapped:(id)sender {
-    [self.manager deleteMovieFromFavorites:self.movie completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
-        [self dismissViewControllerAnimated:true completion:nil];
-    }];
-}
-
-- (IBAction)dismissButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
-}
-
-
--(void)setupViewWithMovie:(Movie *)movie {
-    NSString *url = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w500%@", movie.poster_path];
-    [self.movieImageView hnk_setImageFromURL:[NSURL URLWithString:url]];
-    
-    if (movie.isFavorite) {
-        self.removeFromFavoritesButton.hidden = NO;
-        self.addToFavoritesButton.hidden = YES;
+- (IBAction)favoritesButtonTapped:(id)sender {
+    if (self.movie.isFavorite) {
+        [self.manager deleteMovieFromFavorites:self.movie completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.favoritesButton setImage:[UIImage imageNamed:@"Star"] forState:UIControlStateNormal];
+            }];
+        }];
     } else {
-        self.removeFromFavoritesButton.hidden = YES;
-        self.addToFavoritesButton.hidden = NO;
+        [self.manager saveMovieToFavorites:self.movie completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.favoritesButton setImage:[UIImage imageNamed:@"Star favorite"] forState:UIControlStateNormal];
+            }];
+        }];
     }
 }
 
+-(void)setupViewWithMovie:(Movie *)movie {
+    NSString *url = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", movie.poster_path];
+    [self.movieImageView hnk_setImageFromURL:[NSURL URLWithString:url]];
+    self.overviewTextView.text = movie.overview;
+    
+    if (movie.isFavorite) {
+        [self.favoritesButton setImage:[UIImage imageNamed:@"Star favorite"] forState:UIControlStateNormal];
+    } else {
+        [self.favoritesButton setImage:[UIImage imageNamed:@"Star"] forState:UIControlStateNormal];
+    }
+}
 
 @end

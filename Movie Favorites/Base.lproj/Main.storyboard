@@ -3,10 +3,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movies-->
+        <!--Popular Movies-->
         <scene sceneID="3gp-Cw-hsk">
             <objects>
                 <collectionViewController id="pcv-jb-DON" customClass="MovieViewController" sceneMemberID="viewController">
@@ -26,17 +27,17 @@
                             <outlet property="delegate" destination="pcv-jb-DON" id="b5b-33-PIy"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" tag="1" title="Movies" id="biA-iF-K54"/>
+                    <navigationItem key="navigationItem" title="Popular Movies" id="PRO-Z1-ViR"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edh-Zd-WS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="-290"/>
+            <point key="canvasLocation" x="1316" y="-290"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Favorites-->
         <scene sceneID="Ra2-2y-cTT">
             <objects>
                 <collectionViewController storyboardIdentifier="favController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WOk-jl-IRD" customClass="FavoritesViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="MPG-7a-hlU">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="MPG-7a-hlU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,11 +53,11 @@
                             <outlet property="delegate" destination="WOk-jl-IRD" id="eul-XN-g7r"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" tag="2" systemItem="favorites" id="XWg-qq-jKx"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="Kxp-LU-4K6"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSc-Yv-KSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="591"/>
+            <point key="canvasLocation" x="1316" y="591"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="VZi-Sx-OML">
@@ -72,50 +73,59 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Wu-Hm-1kY">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="4oT-Sq-TuB"/>
-                                    <constraint firstAttribute="width" constant="200" id="hi0-hb-fmn"/>
+                                    <constraint firstAttribute="height" constant="280" id="KSp-dN-0YS"/>
+                                    <constraint firstAttribute="width" constant="200" id="kxe-wM-OXm"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8p-lp-hjf">
-                                <state key="normal" title="Dismiss"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGC-K6-6Ax">
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB1-Nq-EjM">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qB1-Nq-EjM" firstAttribute="centerY" secondItem="GGC-K6-6Ax" secondAttribute="centerY" id="6aj-Tw-leU"/>
+                                    <constraint firstAttribute="bottom" secondItem="qB1-Nq-EjM" secondAttribute="bottom" id="8ZK-9s-Tmn"/>
+                                    <constraint firstItem="qB1-Nq-EjM" firstAttribute="top" secondItem="GGC-K6-6Ax" secondAttribute="top" id="CNz-eK-c9u"/>
+                                    <constraint firstItem="qB1-Nq-EjM" firstAttribute="centerX" secondItem="GGC-K6-6Ax" secondAttribute="centerX" id="LLk-RY-oiu"/>
+                                    <constraint firstItem="qB1-Nq-EjM" firstAttribute="leading" secondItem="GGC-K6-6Ax" secondAttribute="leading" id="ZtJ-yG-sp1"/>
+                                    <constraint firstAttribute="trailing" secondItem="qB1-Nq-EjM" secondAttribute="trailing" id="esh-Xz-vM3"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDo-fy-9NE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="YXi-GY-arJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="rae-YX-G5R"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Star"/>
                                 <connections>
-                                    <action selector="dismissButtonTapped:" destination="dAF-jl-Wfn" eventType="touchUpInside" id="wRy-Jx-JOH"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrK-HD-3ex">
-                                <state key="normal" title="Add to Favorites"/>
-                                <connections>
-                                    <action selector="addToFavoritesButtonTapped:" destination="dAF-jl-Wfn" eventType="touchUpInside" id="6b9-ZZ-a9q"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJs-Lf-cWw">
-                                <state key="normal" title="Remove from Favorites"/>
-                                <connections>
-                                    <action selector="removeFromFavoritesTapped:" destination="dAF-jl-Wfn" eventType="touchUpInside" id="vMv-xG-dol"/>
+                                    <action selector="favoritesButtonTapped:" destination="dAF-jl-Wfn" eventType="touchUpInside" id="ZdS-T9-HSg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YJs-Lf-cWw" firstAttribute="centerX" secondItem="TT6-6b-jPd" secondAttribute="centerX" id="20i-lx-GzP"/>
-                            <constraint firstItem="YJs-Lf-cWw" firstAttribute="top" secondItem="9Wu-Hm-1kY" secondAttribute="bottom" constant="56.5" id="HdS-tM-9Yp"/>
-                            <constraint firstItem="mrK-HD-3ex" firstAttribute="centerX" secondItem="TT6-6b-jPd" secondAttribute="centerX" id="KzI-dK-Jfk"/>
-                            <constraint firstItem="9Wu-Hm-1kY" firstAttribute="centerX" secondItem="TT6-6b-jPd" secondAttribute="centerX" id="SZj-c9-QZU"/>
-                            <constraint firstItem="L8p-lp-hjf" firstAttribute="top" secondItem="mrK-HD-3ex" secondAttribute="bottom" constant="36" id="UdZ-dk-rkH"/>
-                            <constraint firstItem="9Wu-Hm-1kY" firstAttribute="centerY" secondItem="TT6-6b-jPd" secondAttribute="centerY" id="hmv-6g-rgf"/>
-                            <constraint firstItem="L8p-lp-hjf" firstAttribute="centerX" secondItem="mrK-HD-3ex" secondAttribute="centerX" id="q5Y-a0-me3"/>
-                            <constraint firstItem="mrK-HD-3ex" firstAttribute="top" secondItem="9Wu-Hm-1kY" secondAttribute="bottom" constant="57" id="upg-zt-z2o"/>
+                            <constraint firstItem="9Wu-Hm-1kY" firstAttribute="top" secondItem="NSO-47-bh9" secondAttribute="bottom" constant="8" id="0Ce-dg-z1R"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="GGC-K6-6Ax" secondAttribute="leading" id="5YH-rO-IIx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SDo-fy-9NE" secondAttribute="trailing" id="Chy-9i-heH"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9Wu-Hm-1kY" secondAttribute="leading" id="Gh2-d8-IxF"/>
+                            <constraint firstItem="SDo-fy-9NE" firstAttribute="top" secondItem="NSO-47-bh9" secondAttribute="bottom" constant="8" id="Ih2-ZG-jtC"/>
+                            <constraint firstItem="Ryh-A0-tmj" firstAttribute="top" secondItem="GGC-K6-6Ax" secondAttribute="bottom" id="YFn-md-FdE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GGC-K6-6Ax" secondAttribute="trailing" id="de7-QN-gpl"/>
+                            <constraint firstItem="GGC-K6-6Ax" firstAttribute="top" secondItem="9Wu-Hm-1kY" secondAttribute="bottom" constant="20" id="rve-7y-vJd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addToFavoritesButton" destination="mrK-HD-3ex" id="BAt-c3-Qce"/>
+                        <outlet property="favoritesButton" destination="SDo-fy-9NE" id="GXc-L5-qU0"/>
                         <outlet property="movieImageView" destination="9Wu-Hm-1kY" id="8cR-Vn-JSw"/>
-                        <outlet property="removeFromFavoritesButton" destination="YJs-Lf-cWw" id="zZg-RC-N9Y"/>
+                        <outlet property="overviewTextView" destination="qB1-Nq-EjM" id="q4W-h4-Go0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJb-4I-U77" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="236"/>
+            <point key="canvasLocation" x="2250" y="219"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pRX-dT-rje">
@@ -128,13 +138,54 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="pcv-jb-DON" kind="relationship" relationship="viewControllers" id="b0S-it-e2K"/>
-                        <segue destination="WOk-jl-IRD" kind="relationship" relationship="viewControllers" id="3CR-5m-ISW"/>
+                        <segue destination="vgi-NJ-lUk" kind="relationship" relationship="viewControllers" id="b0S-it-e2K"/>
+                        <segue destination="Oz6-XQ-l9I" kind="relationship" relationship="viewControllers" id="3CR-5m-ISW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6d3-1P-6CD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-452" y="178.56071964017991"/>
         </scene>
+        <!--Movies-->
+        <scene sceneID="EI6-St-Vcj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vgi-NJ-lUk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="Movies" id="biA-iF-K54"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3tD-qE-dod">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pcv-jb-DON" kind="relationship" relationship="rootViewController" id="8fZ-02-aaL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4o-jd-6T5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="584.79999999999995" y="-290.10494752623691"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aFJ-f3-P4m">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oz6-XQ-l9I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" systemItem="favorites" id="XWg-qq-jKx"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RZ1-Y1-AIK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WOk-jl-IRD" kind="relationship" relationship="rootViewController" id="BoH-sN-DIg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="77d-Nb-X2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="584.79999999999995" y="590.55472263868069"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Star" width="96" height="91"/>
+    </resources>
 </document>

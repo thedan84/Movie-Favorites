@@ -13,6 +13,7 @@
 @interface MovieCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *favoritesImageView;
 
 -(void)configureCellWithMovie:(Movie *)movie;
 

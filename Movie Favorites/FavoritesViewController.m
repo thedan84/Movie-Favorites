@@ -20,7 +20,7 @@ static NSString * const reuseIdentifier = @"movieCell";
     self.manager = [[MovieManager alloc] init];
     [self.manager loadMoviesFromDisk:^(RLMResults<Movie *> *moviesArray) {
         self.favorites = moviesArray;
-        [self.collectionView reloadData];
+        [self reloadColletionView];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadColletionView) name:@"ReloadCollectionView" object:nil];
@@ -51,7 +51,7 @@ static NSString * const reuseIdentifier = @"movieCell";
     DetailViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailView"];
     Movie *movie = self.favorites[indexPath.row];
     detailVC.movie = movie;
-    [self presentViewController:detailVC animated:true completion:nil];
+    [self.navigationController pushViewController:detailVC animated:true];
 }
 
 @end

@@ -15,8 +15,8 @@
 @interface DetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *movieImageView;
-@property (weak, nonatomic) IBOutlet UIButton *addToFavoritesButton;
-@property (weak, nonatomic) IBOutlet UIButton *removeFromFavoritesButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoritesButton;
+@property (weak, nonatomic) IBOutlet UITextView *overviewTextView;
 
 @property (nonatomic) Movie *movie;
 @property (nonatomic) MovieManager *manager;
