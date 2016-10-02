@@ -29,12 +29,14 @@
 
 - (IBAction)addToFavoritesButtonTapped:(id)sender {
     [self.manager saveMovieToFavorites:self.movie completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
         [self dismissViewControllerAnimated:true completion:nil];
     }];
 }
 
 - (IBAction)removeFromFavoritesTapped:(id)sender {
     [self.manager deleteMovieFromFavorites:self.movie completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
         [self dismissViewControllerAnimated:true completion:nil];
     }];
 }

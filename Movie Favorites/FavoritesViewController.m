@@ -22,17 +22,13 @@ static NSString * const reuseIdentifier = @"movieCell";
         self.favorites = moviesArray;
         [self.collectionView reloadData];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadColletionView) name:@"ReloadCollectionView" object:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)reloadColletionView {
+    [self.collectionView reloadData];
 }
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
