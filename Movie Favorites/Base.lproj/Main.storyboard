@@ -71,50 +71,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Wu-Hm-1kY">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="KSp-dN-0YS"/>
-                                    <constraint firstAttribute="width" constant="200" id="kxe-wM-OXm"/>
-                                </constraints>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGC-K6-6Ax">
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB1-Nq-EjM">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="qB1-Nq-EjM" firstAttribute="centerY" secondItem="GGC-K6-6Ax" secondAttribute="centerY" id="6aj-Tw-leU"/>
-                                    <constraint firstAttribute="bottom" secondItem="qB1-Nq-EjM" secondAttribute="bottom" id="8ZK-9s-Tmn"/>
-                                    <constraint firstItem="qB1-Nq-EjM" firstAttribute="top" secondItem="GGC-K6-6Ax" secondAttribute="top" id="CNz-eK-c9u"/>
-                                    <constraint firstItem="qB1-Nq-EjM" firstAttribute="centerX" secondItem="GGC-K6-6Ax" secondAttribute="centerX" id="LLk-RY-oiu"/>
-                                    <constraint firstItem="qB1-Nq-EjM" firstAttribute="leading" secondItem="GGC-K6-6Ax" secondAttribute="leading" id="ZtJ-yG-sp1"/>
-                                    <constraint firstAttribute="trailing" secondItem="qB1-Nq-EjM" secondAttribute="trailing" id="esh-Xz-vM3"/>
-                                </constraints>
-                            </scrollView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Wu-Hm-1kY"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDo-fy-9NE">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="YXi-GY-arJ"/>
-                                    <constraint firstAttribute="height" constant="40" id="rae-YX-G5R"/>
+                                    <constraint firstAttribute="width" constant="40" id="7os-9n-Egz"/>
+                                    <constraint firstAttribute="height" constant="40" id="vSJ-SO-YVr"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="Star"/>
                                 <connections>
                                     <action selector="favoritesButtonTapped:" destination="dAF-jl-Wfn" eventType="touchUpInside" id="ZdS-T9-HSg"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB1-Nq-EjM">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="191" id="iAq-z5-UXd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9Wu-Hm-1kY" firstAttribute="top" secondItem="NSO-47-bh9" secondAttribute="bottom" constant="8" id="0Ce-dg-z1R"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="GGC-K6-6Ax" secondAttribute="leading" id="5YH-rO-IIx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SDo-fy-9NE" secondAttribute="trailing" id="Chy-9i-heH"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="9Wu-Hm-1kY" secondAttribute="leading" id="Gh2-d8-IxF"/>
-                            <constraint firstItem="SDo-fy-9NE" firstAttribute="top" secondItem="NSO-47-bh9" secondAttribute="bottom" constant="8" id="Ih2-ZG-jtC"/>
-                            <constraint firstItem="Ryh-A0-tmj" firstAttribute="top" secondItem="GGC-K6-6Ax" secondAttribute="bottom" id="YFn-md-FdE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GGC-K6-6Ax" secondAttribute="trailing" id="de7-QN-gpl"/>
-                            <constraint firstItem="GGC-K6-6Ax" firstAttribute="top" secondItem="9Wu-Hm-1kY" secondAttribute="bottom" constant="20" id="rve-7y-vJd"/>
+                            <constraint firstItem="9Wu-Hm-1kY" firstAttribute="leading" secondItem="TT6-6b-jPd" secondAttribute="leading" id="10F-iT-fbE"/>
+                            <constraint firstItem="Ryh-A0-tmj" firstAttribute="top" secondItem="9Wu-Hm-1kY" secondAttribute="bottom" id="37E-O8-8yY"/>
+                            <constraint firstItem="9Wu-Hm-1kY" firstAttribute="top" secondItem="TT6-6b-jPd" secondAttribute="top" id="FkI-jW-wTL"/>
+                            <constraint firstItem="Ryh-A0-tmj" firstAttribute="top" secondItem="qB1-Nq-EjM" secondAttribute="bottom" id="Ych-eh-5Nr"/>
+                            <constraint firstItem="SDo-fy-9NE" firstAttribute="top" secondItem="NSO-47-bh9" secondAttribute="bottom" constant="8" id="ZBL-Cd-S17"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SDo-fy-9NE" secondAttribute="trailing" id="cKA-Ae-NLp"/>
+                            <constraint firstItem="qB1-Nq-EjM" firstAttribute="leading" secondItem="TT6-6b-jPd" secondAttribute="leading" id="dgc-9d-H8a"/>
+                            <constraint firstAttribute="trailing" secondItem="9Wu-Hm-1kY" secondAttribute="trailing" id="rhA-Y1-OjP"/>
+                            <constraint firstAttribute="trailing" secondItem="qB1-Nq-EjM" secondAttribute="trailing" id="tEB-CL-3Dq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -125,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJb-4I-U77" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2250" y="219"/>
+            <point key="canvasLocation" x="2248.8000000000002" y="218.1409295352324"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pRX-dT-rje">

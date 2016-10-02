@@ -11,6 +11,6 @@
 
 @interface NetworkManager : NSObject
 
-+(void)requestEndpoint:(NSString *)endpoint completion:(void(^)(NSArray *JSONArray))completion;
++(void)requestEndpoint:(NSString *)endpoint completion:(void(^)(NSArray *JSONArray, NSError *error))completion;
 
 @end

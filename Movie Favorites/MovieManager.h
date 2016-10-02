@@ -12,7 +12,7 @@
 
 @interface MovieManager : NSObject
 
--(void)fetchMoviesWithPage:(NSInteger) page completion:(void(^)(RLMResults<Movie *> *movieArray)) completion;
+-(void)fetchMoviesWithPage:(NSInteger) page completion:(void(^)(RLMResults<Movie *> *movieArray, NSError *error)) completion;
 -(void)toggleFavorite:(Movie *)movie completion:(void(^)(void))completion;
 -(void)loadMoviesFromDisk: (void(^)(RLMResults<Movie *> *moviesArray))completion;
 

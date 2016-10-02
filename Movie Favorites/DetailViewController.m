@@ -15,13 +15,16 @@
     
     self.manager = [[MovieManager alloc] init];
     [self setupViewWithMovie:self.movie];
+    
+    UITapGestureRecognizer *imageGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTapped)];
+    [self.movieImageView addGestureRecognizer:imageGestureRecognizer];
 }
 
 - (IBAction)favoritesButtonTapped:(id)sender {
     [self.manager toggleFavorite:self.movie completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
         
-        [UIView animateWithDuration:1 animations:^{
+        [UIView animateWithDuration:0.7 animations:^{
             self.favoritesButton.alpha = 0;
         } completion:^(BOOL finished) {
             if (self.movie.isFavorite) {
@@ -30,7 +33,7 @@
                 [self.favoritesButton setImage:[UIImage imageNamed:@"Star"] forState:UIControlStateNormal];
             }
             
-            [UIView animateWithDuration:1 animations:^{
+            [UIView animateWithDuration:0.7 animations:^{
                 self.favoritesButton.alpha = 1;
             }];
         }];
@@ -47,6 +50,18 @@
         [self.favoritesButton setImage:[UIImage imageNamed:@"Star favorite"] forState:UIControlStateNormal];
     } else {
         [self.favoritesButton setImage:[UIImage imageNamed:@"Star"] forState:UIControlStateNormal];
+    }
+}
+
+-(void)imageViewTapped {
+    if (self.overviewTextView.alpha == 0) {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.overviewTextView.alpha = 0.9;
+        }];
+    } else {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.overviewTextView.alpha = 0;
+        }];
     }
 }
 

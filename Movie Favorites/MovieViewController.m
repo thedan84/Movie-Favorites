@@ -22,10 +22,14 @@ static NSString * const reuseIdentifier = @"movieCell";
     
     self.page = 1;
     
-    [self.manager fetchMoviesWithPage:self.page completion:^(RLMResults<Movie *> *movieArray) {
-        self.movies = movieArray;
-        self.page += 1;
-        [self reloadCollectionView];
+    [self.manager fetchMoviesWithPage:self.page completion:^(RLMResults<Movie *> *movieArray, NSError *error) {
+        if (error == nil) {
+            self.movies = movieArray;
+            self.page += 1;
+            [self reloadCollectionView];
+        } else {
+            [self showAlertWithTitle:@"There seems to be a problem" andMessage:error.localizedDescription];
+        }
         
     }];
     
@@ -33,11 +37,15 @@ static NSString * const reuseIdentifier = @"movieCell";
     [self.collectionView addInfiniteScrollingWithActionHandler:^{
         __strong typeof(self) strongSelf = weakSelf;
         
-        [strongSelf.manager fetchMoviesWithPage:strongSelf.page completion:^(RLMResults<Movie *> *movieArray) {
-            strongSelf.movies = movieArray;
-            strongSelf.page += 1;
-            [strongSelf.collectionView.infiniteScrollingView stopAnimating];
-            [strongSelf reloadCollectionView];
+        [strongSelf.manager fetchMoviesWithPage:strongSelf.page completion:^(RLMResults<Movie *> *movieArray, NSError *error) {
+            if (error == nil) {
+                strongSelf.movies = movieArray;
+                strongSelf.page += 1;
+                [strongSelf.collectionView.infiniteScrollingView stopAnimating];
+                [strongSelf reloadCollectionView];
+            } else {
+                [strongSelf showAlertWithTitle:@"There seems to be a problem" andMessage:error.localizedDescription];
+            }
         }];
     }];
     
@@ -70,6 +78,14 @@ static NSString * const reuseIdentifier = @"movieCell";
     Movie *movie = self.movies[indexPath.row];
     detailVC.movie = movie;
     [self.navigationController pushViewController:detailVC animated:true];
+}
+
+#pragma mark <UIAlertController>
+-(void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:true completion:nil];
 }
 
 @end
