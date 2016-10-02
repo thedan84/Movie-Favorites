@@ -8,6 +8,6 @@ target 'Movie Favorites' do
   # Pods for Movie Favorites
 pod 'Haneke'
 pod 'Realm'
-
+pod 'SVPullToRefresh'
 
 end

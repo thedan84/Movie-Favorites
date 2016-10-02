@@ -3,15 +3,18 @@ PODS:
   - Realm (2.0.1):
     - Realm/Headers (= 2.0.1)
   - Realm/Headers (2.0.1)
+  - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - Haneke
   - Realm
+  - SVPullToRefresh
 
 SPEC CHECKSUMS:
   Haneke: 01454a67322faa0dd9d81fc0f447885044e71521
   Realm: 0557ee0e4ab4f0936c90e370056d1ed6265f93d6
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
-PODFILE CHECKSUM: 874288cc18e23fc40ea4439042b307c94f430725
+PODFILE CHECKSUM: c90cf12929bf41ecea3be39d8dec467c10ecb088
 
 COCOAPODS: 1.0.1

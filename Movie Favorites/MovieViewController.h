@@ -14,7 +14,8 @@
 
 @interface MovieViewController : UICollectionViewController
 
-@property (nonatomic) MovieManager *manager;
+@property (nonatomic, strong) MovieManager *manager;
 @property (nonatomic) RLMResults<Movie *> *movies;
+@property (nonatomic) NSInteger page;
 
 @end

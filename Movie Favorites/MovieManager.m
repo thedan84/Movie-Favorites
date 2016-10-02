@@ -15,7 +15,7 @@
 @implementation MovieManager
 
 -(void)fetchMoviesWithPage:(NSInteger) page completion:(void(^)(RLMResults<Movie *> *movieArray)) completion {
-    [NetworkManager requestEndpoint:@"https:api.themoviedb.org/3/movie/popular?api_key=c3005ad5132be3f614b8de0fe58fbdf4" completion:^(NSArray *JSONArray) {
+    [NetworkManager requestEndpoint:[NSString stringWithFormat:@"https:api.themoviedb.org/3/movie/popular?api_key=c3005ad5132be3f614b8de0fe58fbdf4&page=%li", (long)page] completion:^(NSArray *JSONArray) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
         

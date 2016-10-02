@@ -7,6 +7,7 @@
 //
 
 #import "MovieViewController.h"
+#import <SVPullToRefresh/SVPullToRefresh.h>
 
 @implementation MovieViewController
 
@@ -19,10 +20,22 @@ static NSString * const reuseIdentifier = @"movieCell";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"MovieCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
-    [self.manager fetchMoviesWithPage:1 completion:^(RLMResults<Movie *> *movieArray) {
+    self.page = 1;
+    
+    [self.manager fetchMoviesWithPage:self.page completion:^(RLMResults<Movie *> *movieArray) {
         self.movies = movieArray;
-        [self.collectionView reloadData];
+        self.page += 1;
+        [self reloadCollectionView];
         
+    }];
+    
+    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+        [self.manager fetchMoviesWithPage:self.page completion:^(RLMResults<Movie *> *movieArray) {
+            self.movies = movieArray;
+            self.page += 1;
+            [self.collectionView.infiniteScrollingView stopAnimating];
+            [self reloadCollectionView];
+        }];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollectionView) name:@"ReloadCollectionView" object:nil];
