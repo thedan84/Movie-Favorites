@@ -137,7 +137,7 @@
         <scene sceneID="EI6-St-Vcj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vgi-NJ-lUk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Movies" id="biA-iF-K54"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Movies" image="films" id="biA-iF-K54"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3tD-qE-dod">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -174,5 +174,6 @@
     </scenes>
     <resources>
         <image name="Star" width="96" height="91"/>
+        <image name="films" width="22" height="22"/>
     </resources>
 </document>
