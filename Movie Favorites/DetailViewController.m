@@ -18,21 +18,24 @@
 }
 
 - (IBAction)favoritesButtonTapped:(id)sender {
-    if (self.movie.isFavorite) {
-        [self.manager deleteMovieFromFavorites:self.movie completion:^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [self.favoritesButton setImage:[UIImage imageNamed:@"Star"] forState:UIControlStateNormal];
-            }];
-        }];
-    } else {
-        [self.manager saveMovieToFavorites:self.movie completion:^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+    [self.manager toggleFavorite:self.movie completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadCollectionView" object:nil];
+        
+        [UIView animateWithDuration:1 animations:^{
+            self.favoritesButton.alpha = 0;
+        } completion:^(BOOL finished) {
+            if (self.movie.isFavorite) {
                 [self.favoritesButton setImage:[UIImage imageNamed:@"Star favorite"] forState:UIControlStateNormal];
+            } else {
+                [self.favoritesButton setImage:[UIImage imageNamed:@"Star"] forState:UIControlStateNormal];
+            }
+            
+            [UIView animateWithDuration:1 animations:^{
+                self.favoritesButton.alpha = 1;
             }];
         }];
-    }
+        
+    }];
 }
 
 -(void)setupViewWithMovie:(Movie *)movie {

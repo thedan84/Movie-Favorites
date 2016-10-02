@@ -14,7 +14,6 @@
 		78D06D611D9D7A6A00F864FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D06D601D9D7A6A00F864FE /* AppDelegate.m */; };
 		78D06D671D9D7A6A00F864FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78D06D651D9D7A6A00F864FE /* Main.storyboard */; };
 		78D06D691D9D7A6A00F864FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78D06D681D9D7A6A00F864FE /* Assets.xcassets */; };
-		78D06D6C1D9D7A6A00F864FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78D06D6A1D9D7A6A00F864FE /* LaunchScreen.storyboard */; };
 		78D06D751D9D7B0B00F864FE /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D06D741D9D7B0B00F864FE /* MovieViewController.m */; };
 		78D06D781D9D7B9300F864FE /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D06D771D9D7B9300F864FE /* MovieCell.m */; };
 		78D06D7B1D9D7BE500F864FE /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D06D7A1D9D7BE500F864FE /* Movie.m */; };
@@ -35,7 +34,6 @@
 		78D06D601D9D7A6A00F864FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		78D06D661D9D7A6A00F864FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78D06D681D9D7A6A00F864FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		78D06D6B1D9D7A6A00F864FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78D06D6D1D9D7A6A00F864FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78D06D731D9D7B0B00F864FE /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
 		78D06D741D9D7B0B00F864FE /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				78D06D7A1D9D7BE500F864FE /* Movie.m */,
 				78D06D651D9D7A6A00F864FE /* Main.storyboard */,
 				78D06D681D9D7A6A00F864FE /* Assets.xcassets */,
-				78D06D6A1D9D7A6A00F864FE /* LaunchScreen.storyboard */,
 				78D06D6D1D9D7A6A00F864FE /* Info.plist */,
 				78D06D5C1D9D7A6A00F864FE /* Supporting Files */,
 			);
@@ -198,7 +195,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78D06D6C1D9D7A6A00F864FE /* LaunchScreen.storyboard in Resources */,
 				78D06D691D9D7A6A00F864FE /* Assets.xcassets in Resources */,
 				781EA71F1D9FAB5F00F2503D /* MovieCell.xib in Resources */,
 				78D06D671D9D7A6A00F864FE /* Main.storyboard in Resources */,
@@ -281,14 +277,6 @@
 				78D06D661D9D7A6A00F864FE /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		78D06D6A1D9D7A6A00F864FE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				78D06D6B1D9D7A6A00F864FE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -389,6 +377,7 @@
 			baseConfigurationReference = F466B84A63AA39C7E80B3608 /* Pods-Movie Favorites.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = DEYT8Z7L38;
 				INFOPLIST_FILE = "Movie Favorites/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -402,6 +391,7 @@
 			baseConfigurationReference = D63324A748FA1C7B36CA0977 /* Pods-Movie Favorites.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = DEYT8Z7L38;
 				INFOPLIST_FILE = "Movie Favorites/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

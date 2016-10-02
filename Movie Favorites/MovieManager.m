@@ -29,24 +29,16 @@
     }];
 }
 
--(void)saveMovieToFavorites:(Movie *)movie completion:(void (^)(void))completion {
-    RLMRealm *realm = [RLMRealm defaultRealm];
-
-    [realm beginWriteTransaction];
-    
-    movie.isFavorite = YES;
-    
-    [realm addOrUpdateObject:movie];
-    [realm commitWriteTransaction];
-    
-    completion();
-}
-
--(void)deleteMovieFromFavorites:(Movie *)movie completion:(void(^)(void))completion {
+-(void)toggleFavorite:(Movie *)movie completion:(void(^)(void))completion {
     RLMRealm *realm = [RLMRealm defaultRealm];
     
     [realm beginWriteTransaction];
-    movie.isFavorite = NO;
+    
+    if (movie.isFavorite) {
+        movie.isFavorite = NO;
+    } else {
+        movie.isFavorite = YES;
+    }
     
     [realm addOrUpdateObject:movie];
     [realm commitWriteTransaction];
