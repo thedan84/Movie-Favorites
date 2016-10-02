@@ -29,12 +29,15 @@ static NSString * const reuseIdentifier = @"movieCell";
         
     }];
     
+    __weak typeof(self) weakSelf = self;
     [self.collectionView addInfiniteScrollingWithActionHandler:^{
-        [self.manager fetchMoviesWithPage:self.page completion:^(RLMResults<Movie *> *movieArray) {
-            self.movies = movieArray;
-            self.page += 1;
-            [self.collectionView.infiniteScrollingView stopAnimating];
-            [self reloadCollectionView];
+        __strong typeof(self) strongSelf = weakSelf;
+        
+        [strongSelf.manager fetchMoviesWithPage:strongSelf.page completion:^(RLMResults<Movie *> *movieArray) {
+            strongSelf.movies = movieArray;
+            strongSelf.page += 1;
+            [strongSelf.collectionView.infiniteScrollingView stopAnimating];
+            [strongSelf reloadCollectionView];
         }];
     }];
     
