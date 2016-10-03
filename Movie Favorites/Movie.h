@@ -17,6 +17,4 @@
 @property NSInteger id;
 @property BOOL isFavorite;
 
-//-(id)initWithDictionary:(NSDictionary *)JSONDict;
-
 @end

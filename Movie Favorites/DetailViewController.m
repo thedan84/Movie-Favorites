@@ -10,6 +10,8 @@
 
 @implementation DetailViewController
 
+#pragma mark <View lifecycle>
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -19,9 +21,11 @@
     UITapGestureRecognizer *imageGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTapped)];
     [self.movieImageView addGestureRecognizer:imageGestureRecognizer];
 
-UITapGestureRecognizer *textViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textViewTapped)];
-[self.overviewTextView addGestureRecognizer:textViewRecognizer];
+    UITapGestureRecognizer *textViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textViewTapped)];
+    [self.overviewTextView addGestureRecognizer:textViewRecognizer];
 }
+
+#pragma mark <IBAction>
 
 - (IBAction)favoritesButtonTapped:(id)sender {
     [self.manager toggleFavorite:self.movie completion:^{
@@ -44,10 +48,13 @@ UITapGestureRecognizer *textViewRecognizer = [[UITapGestureRecognizer alloc] ini
     }];
 }
 
+#pragma mark <View setup>
+
 -(void)setupViewWithMovie:(Movie *)movie {
     NSString *url = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", movie.poster_path];
     [self.movieImageView hnk_setImageFromURL:[NSURL URLWithString:url]];
     self.overviewTextView.text = movie.overview;
+    self.title = movie.title;
     
     if (movie.isFavorite) {
         [self.favoritesButton setImage:[UIImage imageNamed:@"Star favorite"] forState:UIControlStateNormal];
@@ -56,20 +63,20 @@ UITapGestureRecognizer *textViewRecognizer = [[UITapGestureRecognizer alloc] ini
     }
 }
 
+#pragma mark <Gesture recognizer methods>
+
 -(void)imageViewTapped {
-    if (self.overviewTextView.alpha == 0) {
-        [UIView animateWithDuration:0.7 animations:^{
-            self.overviewTextView.alpha = 0.9;
-        }];
-    } else {
-        [UIView animateWithDuration:0.7 animations:^{
-            self.overviewTextView.alpha = 0;
-        }];
-    }
+    [self toggleOverviewTextViewHidden];
 }
 
 -(void)textViewTapped {
-if (self.overviewTextView.alpha == 0) {
+    [self toggleOverviewTextViewHidden];
+}
+
+#pragma mark <Helper method>
+
+-(void)toggleOverviewTextViewHidden {
+    if (self.overviewTextView.alpha == 0) {
         [UIView animateWithDuration:0.7 animations:^{
             self.overviewTextView.alpha = 0.9;
         }];

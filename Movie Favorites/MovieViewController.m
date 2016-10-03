@@ -13,6 +13,8 @@
 
 static NSString * const reuseIdentifier = @"movieCell";
 
+#pragma mark <View lifecycle>
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -22,6 +24,7 @@ static NSString * const reuseIdentifier = @"movieCell";
     
     self.page = 1;
     
+#pragma mark <Fetch initial data>
     [self.manager fetchMoviesWithPage:self.page completion:^(RLMResults<Movie *> *movieArray, NSError *error) {
         if (error == nil) {
             self.movies = movieArray;
@@ -33,6 +36,7 @@ static NSString * const reuseIdentifier = @"movieCell";
         
     }];
     
+#pragma mark <Infinite scrolling>
     __weak typeof(self) weakSelf = self;
     [self.collectionView addInfiniteScrollingWithActionHandler:^{
         __strong typeof(self) strongSelf = weakSelf;
@@ -50,10 +54,6 @@ static NSString * const reuseIdentifier = @"movieCell";
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCollectionView) name:@"ReloadCollectionView" object:nil];
-}
-
--(void)reloadCollectionView {
-    [self.collectionView reloadData];
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -86,6 +86,12 @@ static NSString * const reuseIdentifier = @"movieCell";
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:true completion:nil];
+}
+
+#pragma mark <Helper>
+
+-(void)reloadCollectionView {
+    [self.collectionView reloadData];
 }
 
 @end

@@ -12,13 +12,15 @@
 
 static NSString * const reuseIdentifier = @"movieCell";
 
+#pragma mark <View lifecycle>
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"MovieCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
     self.manager = [[MovieManager alloc] init];
-    [self.manager loadMoviesFromDisk:^(RLMResults<Movie *> *moviesArray) {
+    [self.manager loadFavoriteMoviesFromDisk:^(RLMResults<Movie *> *moviesArray) {
         self.favorites = moviesArray;
         [self reloadColletionView];
     }];

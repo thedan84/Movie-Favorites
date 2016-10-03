@@ -10,10 +10,14 @@
 
 @implementation MovieCell
 
+#pragma mark <Cell reusing>
+
 -(void)prepareForReuse {
     [self.movieImageView hnk_cancelSetImage];
     self.movieImageView.image = nil;
 }
+
+#pragma mark <Cell configuration>
 
 -(void)configureCellWithMovie:(Movie *)movie {
     NSString *url = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w500%@", movie.poster_path];

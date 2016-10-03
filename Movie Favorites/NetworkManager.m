@@ -10,6 +10,8 @@
 
 @implementation NetworkManager
 
+#pragma mark <Request endpoint method>
+
 +(void)requestEndpoint:(NSString *)urlEndpointString completion:(void(^)(NSArray *JSONArray, NSError *error))completion {
     NSURL *url = [NSURL URLWithString:urlEndpointString];
     

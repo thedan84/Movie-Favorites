@@ -10,17 +10,7 @@
 
 @implementation Movie
 
-//-(id)initWithDictionary:(NSDictionary *)JSONDict {
-//    self.identifier = [[JSONDict valueForKey:@"id"]intValue];
-//    self.title = [JSONDict valueForKey:@"title"];
-//    self.overview = [JSONDict valueForKey:@"overview"];
-//    NSString *posterPath = [JSONDict valueForKey:@"poster_path"];
-//    NSString *urlString = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/w500%@", posterPath];
-//    self.imageURLString = urlString;
-//    self.isFavorite = false;
-//    
-//    return self;
-//}
+//Movie doesn't need an init method because Realm handles initialization of the class for us. Updating the Database is done via the primary key, and each instance's 'isFavorite' property is set to 'NO' during saving to disk.
 
 + (NSDictionary *)defaultPropertyValues {
     return @{@"isFavorite" : @NO};
