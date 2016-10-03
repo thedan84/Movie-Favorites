@@ -12,7 +12,7 @@
             <objects>
                 <collectionViewController id="pcv-jb-DON" customClass="MovieViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Hip-rE-M1W">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="2" id="cOP-XL-ocS">
@@ -38,7 +38,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="favController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WOk-jl-IRD" customClass="FavoritesViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="MPG-7a-hlU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="2" id="UYS-eF-22L">
@@ -68,7 +68,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ryh-A0-tmj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TT6-6b-jPd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Wu-Hm-1kY"/>
@@ -173,7 +173,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Star" width="404" height="346"/>
+        <image name="Star" width="456" height="409"/>
         <image name="films" width="22" height="22"/>
     </resources>
 </document>
