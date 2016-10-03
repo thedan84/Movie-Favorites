@@ -18,6 +18,9 @@
     
     UITapGestureRecognizer *imageGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTapped)];
     [self.movieImageView addGestureRecognizer:imageGestureRecognizer];
+
+UITapGestureRecognizer *textViewRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textViewTapped)];
+[self.overviewTextView addGestureRecognizer:textViewRecognizer];
 }
 
 - (IBAction)favoritesButtonTapped:(id)sender {
@@ -55,6 +58,18 @@
 
 -(void)imageViewTapped {
     if (self.overviewTextView.alpha == 0) {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.overviewTextView.alpha = 0.9;
+        }];
+    } else {
+        [UIView animateWithDuration:0.7 animations:^{
+            self.overviewTextView.alpha = 0;
+        }];
+    }
+}
+
+-(void)textViewTapped {
+if (self.overviewTextView.alpha == 0) {
         [UIView animateWithDuration:0.7 animations:^{
             self.overviewTextView.alpha = 0.9;
         }];
